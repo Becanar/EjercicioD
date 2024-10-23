@@ -70,7 +70,7 @@ public class tablaController {
     @FXML
     void agregarPersona(ActionEvent event) {
         mostrarVentanaDatos((Stage) btAgregar.getScene().getWindow());
-        btnGuardar.setOnAction(actionEvent -> agregar());
+        btnGuardar.setOnAction(actionEvent -> guardar());
         btnCancelar.setOnAction(actionEvent -> cancelar());
 
     }
@@ -102,7 +102,11 @@ public class tablaController {
         alerta.setContentText("Persona agregada correctamente.");
         alerta.showAndWait();
     }
-
+    /**
+     * Muestra una ventana modal para introducir los datos de una nueva persona.
+     *
+     * @param ventanaPrincipal Stage principal que servirá de propietario del modal.
+     */
     public void mostrarVentanaDatos( Stage ventanaPrincipal) {
         modal = new Stage();
         modal.setResizable(false);
@@ -144,8 +148,11 @@ public class tablaController {
         modal.setTitle("Nueva Persona");
         modal.show();
     }
-
-    public void agregar() {
+    /**
+     * Guarda una nueva persona a la tabla si los datos son válidos.
+     * Si la persona ya existe, muestra un error.
+     */
+    public void guardar() {
         boolean resultado = valido();
         if (resultado) {
             Persona p = new Persona(txtNombre.getText(), txtApellidos.getText(), Integer.parseInt(txtEdad.getText()));
@@ -161,11 +168,18 @@ public class tablaController {
             }
         }
     }
-
+    /**
+     * Cierra la ventana modal sin añadir ninguna persona.
+     */
     public void cancelar() {
         modal.close();
     }
-
+    /**
+     * Verifica si los datos introducidos son válidos.
+     * Muestra errores si los campos están vacíos o si el valor de edad no es un número.
+     *
+     * @return true si los datos son válidos, false en caso contrario.
+     */
     private boolean valido(){
         boolean error=false;
         ArrayList<String> errores=new ArrayList<>();

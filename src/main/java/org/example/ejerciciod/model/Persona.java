@@ -1,4 +1,4 @@
-package org.example.ejerciciod;
+package org.example.ejerciciod.model;
 
 /**
  * Clase que representa una persona con nombre, apellidos y edad.

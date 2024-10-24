@@ -1,4 +1,4 @@
-package org.example.ejerciciod;
+package org.example.ejerciciod.app;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.example.ejerciciod.model.Persona;
 
 import java.util.ArrayList;
 /**

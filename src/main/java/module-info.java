@@ -4,5 +4,8 @@ module org.example.ejerciciod {
 
 
     opens org.example.ejerciciod to javafx.fxml;
-    exports org.example.ejerciciod;
+    exports org.example.ejerciciod.model;
+    opens org.example.ejerciciod.model to javafx.fxml;
+    exports org.example.ejerciciod.app;
+    opens org.example.ejerciciod.app to javafx.fxml;
 }
